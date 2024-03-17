@@ -5,13 +5,14 @@ const app = express();
 //Importacion archivo conexion Base de Datos
 const conexionDB = require("./db.conexion");
 
-const routerEstudiantes = require("./routes/estudiantes.routes");
-
 //Importación de entidades para género definidas en el archivo router
 const routerGeneros = require("./routes/genero.routes");
 
 //Importación de entidades para Director definidas en el archivo router
 const routerDirector = require("./routes/director.routes");
+
+//Importación de entidades para Productora definidas en el archivo router
+const routerProductora = require("./routes/productora.routes");
 
 //conexion a la BD
 conexionDB();
@@ -30,13 +31,14 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.use("/api/estudiantes", routerEstudiantes );
-
 //Definición entidad género
 app.use("/api/generos", routerGeneros );
 
 //Definición entidad Director
 app.use("/api/directores", routerDirector );
+
+//Definición entidad Director
+app.use("/api/productoras", routerProductora );
 
 //Retorno de module
 module.exports = app;
