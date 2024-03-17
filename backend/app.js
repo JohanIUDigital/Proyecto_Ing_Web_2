@@ -14,6 +14,9 @@ const routerDirector = require("./routes/director.routes");
 //Importación de entidades para Productora definidas en el archivo router
 const routerProductora = require("./routes/productora.routes");
 
+//Importación de entidades para Tipos definidas en el archivo router
+const routerTipos = require("./routes/tipo.routes");
+
 //conexion a la BD
 conexionDB();
 
@@ -37,8 +40,11 @@ app.use("/api/generos", routerGeneros );
 //Definición entidad Director
 app.use("/api/directores", routerDirector );
 
-//Definición entidad Director
+//Definición entidad Productoras
 app.use("/api/productoras", routerProductora );
+
+//Definición entidad Productoras
+app.use("/api/tipos", routerTipos );
 
 //Retorno de module
 module.exports = app;

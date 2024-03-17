@@ -61,7 +61,7 @@ exports._updateGenero = async (req, res) => {
     const data = req.body;
 
     //valida si trae parametro id y data para realizar la actualizacion
-    if (_id && data._id) {
+    if (_id && data) {
       await generoModel.findByIdAndUpdate(_id, data);
       res.json({
         msg: `El género ${nombre} (${_id}) se actualizó correctamente`,

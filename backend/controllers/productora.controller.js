@@ -64,7 +64,7 @@ exports._updateProductora = async (req, res) => {
     const nombre = req.body.nombre;
     const data = req.body;
     //valida si trae parametro id y data para realizar la actualizacion
-    if (_id && data.nombre) {
+    if (_id && data) {
     console.log(data)
       await productoraModel.findByIdAndUpdate(_id, data);
       res.json({
