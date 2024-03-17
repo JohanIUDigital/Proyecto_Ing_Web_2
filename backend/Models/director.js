@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
-//Definicion de estructura para tabla(coleccion) generos
-const generoSchema = new Schema ({
+//Definicion de estructura para tabla(coleccion) Director
+const directorSchema = new Schema ({
     nombre: {
         type: String,
         required: true
@@ -20,5 +20,5 @@ const generoSchema = new Schema ({
     }
 });
 
-//Retorno y nombre de tabla(coleccion) generos
-module.exports = model( "Generos", generoSchema );
+//Retorno y nombre de tabla(coleccion) Director
+module.exports = model( "Directores", directorSchema );
