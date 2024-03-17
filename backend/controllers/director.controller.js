@@ -15,7 +15,7 @@ exports._getDirectores = async (req, res) => {
 
     //Si encontro datos, los retorna, sino, retorna mensaje de no se encotraron
     res.json(
-        newDirector.length > 0
+      newDirector.length > 0
         ? newDirector
         : [{ msg: "No se encontraron Resultados" }]
     );
@@ -28,26 +28,41 @@ exports._getDirectores = async (req, res) => {
 exports._createDirector = async (req, res) => {
   try {
     console.log(req.body);
-    const id = req.body.id;
+    const cedula = req.body.cedula;
     const nombre = req.body.nombre;
     const activo = req.body.activo;
     const fechaCreacion = req.body.fechaCreacion;
     const fechaActualizacion = req.body.fechaActualizacion;
-
-    // Definimos objeto Modelo Mongo DB director
-    const newdirector = new directorModel({
-      nombre,
-      activo,
-      fechaCreacion,
-      fechaActualizacion,
+/*
+    //Validamos si ya existe genero en BD
+    const getDirector = await directorModel.find({
+      activo: true,
+      nombre: nombre,
     });
+    console.log("getDirector ", getDirector.length);
+    if (getDirector.length > 0) {
+      res.json({
+        msg: `no fue posible crear El Director, ${nombre} ya existe en la Base de Datos`,
+      });
+      return;
+    } 
+*/
+      // Definimos objeto Modelo Mongo DB director
+      const newdirector = new directorModel({
+        cedula,
+        nombre,
+        activo,
+        fechaCreacion,
+        fechaActualizacion,
+      });
 
-    // Guardamos registro en BD Mongo
-    await newdirector.save();
-    console.log(newdirector);
-    res.json({
-      msg: `El director ${nombre} se creó correctamente, el id generado es ${newdirector._id}`,
-    });
+      // Guardamos registro en BD Mongo
+      await newdirector.save();
+      console.log(newdirector);
+      res.json({
+        msg: `El director ${nombre} se creó correctamente, el id generado es ${newdirector._id}`,
+      });
+    
   } catch (error) {
     res.json(error);
   }
@@ -81,12 +96,14 @@ exports._deleteDirector = async (req, res) => {
   try {
     const _id = req.params.id;
 
+    //Eliminamos registro definitivamente de la base de datos
+    await directorModel.findByIdAndDelete(_id);
+
     //Actualizamos registro an activo fale para conservar registro
-    //const eliminado = await directorModel.findByIdAndDelete(id);
-    await directorModel.findByIdAndUpdate(_id, { activo: false });
+    // await directorModel.findByIdAndUpdate(_id, { activo: false });
 
     // retornamos mensaje de exito
-    res.status(200).json({ msg: `El director fue eliminado con éxito` });
+    res.status(200).json({ msg: `El director ${_id} fue eliminado con éxito` });
   } catch (error) {
     res.json(error);
   }

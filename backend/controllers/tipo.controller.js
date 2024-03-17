@@ -28,12 +28,24 @@ exports._getTipos = async (req, res) => {
 exports._createTipo = async (req, res) => {
   try {
     console.log(req.body);
-    const id = req.body.id;
     const nombre = req.body.nombre;
     const descripcion = req.body.descripcion;
     const activo = req.body.activo;
     const fechaCreacion = req.body.fechaCreacion;
     const fechaActualizacion = req.body.fechaActualizacion;
+
+    //Validamos si ya existe genero en BD
+    const getTipo = await tipoModel.find({
+      activo: true,
+      nombre: nombre,
+    });
+    console.log("getTipo ", getTipo.length);
+    if (getTipo.length > 0) {
+      res.json({
+        msg: `no fue posible crear El Tipo, ${nombre} ya existe en la Base de Datos`,
+      });
+      return;
+    } 
 
     // Definimos objeto Modelo Mongo DB Tipos
     const newTipo = new tipoModel({
@@ -83,12 +95,15 @@ exports._deleteTipo = async (req, res) => {
   try {
     const _id = req.params.id;
 
-    //Actualizamos registro an activo fale para conservar registro
-    //const eliminado = await tipoModel.findByIdAndDelete(id);
-    await tipoModel.findByIdAndUpdate(_id, { activo: false });
+    
+    //Eliminamos registro definitivamente de la base de datos
+    await tipoModel.findByIdAndDelete(_id);
+
+    //Actualizamos registro an activo false para conservar registro
+    //await tipoModel.findByIdAndUpdate(_id, { activo: false });
 
     // retornamos mensaje de exito
-    res.status(200).json({ msg: `El tipo fue eliminado con éxito` });
+    res.status(200).json({ msg: `El tipo ${_id} fue eliminado con éxito` });
   } catch (error) {
     res.json(error);
   }

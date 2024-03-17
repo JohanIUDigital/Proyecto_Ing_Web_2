@@ -6,6 +6,10 @@ const generoSchema = new Schema ({
         type: String,
         required: true
     },
+    descripcion: {
+        type: String,
+        required: true
+    },
     activo: {
         type: Boolean,
         default: true

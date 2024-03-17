@@ -28,7 +28,6 @@ exports._getProductoras = async (req, res) => {
 exports._createProductora = async (req, res) => {
   try {
     console.log(req.body);
-    const id = req.body.id;
     const nombre = req.body.nombre;
     const activo = req.body.activo;
     const fechaCreacion = req.body.fechaCreacion;
@@ -85,12 +84,13 @@ exports._deleteProductora = async (req, res) => {
   try {
     const _id = req.params.id;
 
+    //Eliminamos registro definitivamente de la base de datos
+    await productoraModel.findByIdAndDelete(_id);
     //Actualizamos registro an activo fale para conservar registro
-    //const eliminado = await productoraModel.findByIdAndDelete(id);
-    await productoraModel.findByIdAndUpdate(_id, { activo: false });
+    //await productoraModel.findByIdAndUpdate(_id, { activo: false });
 
     // retornamos mensaje de exito
-    res.status(200).json({ msg: `La productora fue eliminada con éxito` });
+    res.status(200).json({ msg: `La productora ${_id} fue eliminada con éxito` });
   } catch (error) {
     res.json(error);
   }

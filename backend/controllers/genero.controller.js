@@ -28,26 +28,36 @@ exports._getGeneros = async (req, res) => {
 exports._createGenero = async (req, res) => {
   try {
     console.log(req.body);
-    const id = req.body.id;
     const nombre = req.body.nombre;
+    const descripcion = req.body.descripcion;
     const activo = req.body.activo;
     const fechaCreacion = req.body.fechaCreacion;
     const fechaActualizacion = req.body.fechaActualizacion;
 
-    // Definimos objeto Modelo Mongo DB Género
-    const newGenero = new generoModel({
-      nombre,
-      activo,
-      fechaCreacion,
-      fechaActualizacion,
-    });
-
-    // Guardamos registro en BD Mongo
-    await newGenero.save();
-    console.log(newGenero);
-    res.json({
-      msg: `El género ${nombre} se creó correctamente, el id generado es ${newGenero._id}`,
-    });
+    //Validamos si ya existe genero en BD
+    const getGenero = await generoModel.find({ activo: true, nombre: nombre });
+    console.log("getGenero ", getGenero.length);
+    if (getGenero.length > 0) {
+      res.json({
+        msg: `no fue posible crear El género, ${nombre} ya existe en la Base de Datos`,
+      });
+      return;
+    } else {
+      // Definimos objeto Modelo Mongo DB Género
+      const newGenero = new generoModel({
+        nombre,
+        descripcion,
+        activo,
+        fechaCreacion,
+        fechaActualizacion,
+      });
+      // Guardamos registro en BD Mongo
+      await newGenero.save();
+      console.log(newGenero);
+      res.json({
+        msg: `El género ${nombre} se creó correctamente, el id generado es ${newGenero._id}`,
+      });
+    }
   } catch (error) {
     res.json(error);
   }
@@ -81,12 +91,14 @@ exports._deleteGenero = async (req, res) => {
   try {
     const _id = req.params.id;
 
-    //Actualizamos registro an activo fale para conservar registro
-    //const eliminado = await generoModel.findByIdAndDelete(id);
-    await generoModel.findByIdAndUpdate(_id, { activo: false });
+    //Eliminamos registro definitivamente de la base de datos
+    await generoModel.findByIdAndDelete(_id);
+
+    // Actualizamos registro an activo false para conservar registro    
+    // await generoModel.findByIdAndUpdate(_id, { activo: false });
 
     // retornamos mensaje de exito
-    res.status(200).json({ msg: `El género fue eliminado con éxito` });
+    res.status(200).json({ msg: `El género ${_id} fue eliminado con éxito` });
   } catch (error) {
     res.json(error);
   }
