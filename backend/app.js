@@ -1,7 +1,8 @@
 const express = require('express')
-const routerEstudiantes = require("./routes/estudiantes.routes")
 const app = express()
 const conexionDB = require("./db.conexion")
+const routerEstudiantes = require("./routes/estudiantes.routes")
+const routerGeneros = require("./routes/genero.routes")
 
 //conexion a la BD
 conexionDB();
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.use("/api/estudiantes", routerEstudiantes )
+app.use("/api/estudiantes", routerEstudiantes );
+app.use("/api/genero", routerGeneros );
 
 module.exports = app;
