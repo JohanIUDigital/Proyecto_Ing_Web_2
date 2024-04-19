@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon backend/index.js",
-    "start": "node backend/index.js"
+    "start": "node dist/index.js",
+    "build": "etsc"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,11 @@
     "node": "20.9.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.7",
+    "esbuild": "^0.20.2",
+    "esbuild-node-tsc": "^2.0.5",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.4.5"
   }
 }
