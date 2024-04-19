@@ -1,7 +1,12 @@
 //Importacion libreria express para creacion de APIs
 const express = require('express');
-//Definicion objeto express
+
+//Definicion objeto express 
 const app = express();
+
+//Importacion variables de entorno config.js
+const config = require('./config.js');
+
 //Importacion archivo conexion Base de Datos
 const conexionDB = require("./db.conexion");
 
@@ -27,7 +32,7 @@ conexionDB();
 app.set("name", "rest-api-nodejs");
 
 //Definicion Puerto dinámico
-app.set("port", process.env.port || 3500);
+app.set("port", config.PORT);
 
 //Definicion tipo Json para Data de APIs
 app.use( express.json() );
