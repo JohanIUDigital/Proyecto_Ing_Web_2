@@ -5,7 +5,7 @@ const conexionDB = async () => {
     try {
         //conexión a Cluster creado en Mongo Atlas
         const DB = await mongoose.connect(
-          process.env.MongoConexion
+          process.env.MONGOCNX
         );
         console.log("Conexion Mongo Satisfactoria", DB.connection.name);
     } catch (error) {

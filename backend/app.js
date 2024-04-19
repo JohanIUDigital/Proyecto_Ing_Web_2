@@ -1,5 +1,13 @@
 //Importacion libreria express para creacion de APIs
 const express = require('express');
+
+const dotenv = require("dotenv")
+
+dotenv.config({ path: "./config/config.env" });
+
+console.log("env")
+console.log(dotenv.parse())
+
 //Definicion objeto express
 const app = express();
 //Importacion archivo conexion Base de Datos
