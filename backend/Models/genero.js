@@ -24,5 +24,5 @@ const generoSchema = new Schema ({
     }
 });
 
-//Retorno y nombre de tabla(coleccion) generos
+//Retorno y nombre de tabla(coleccion) genero
 module.exports = model( "Generos", generoSchema );
