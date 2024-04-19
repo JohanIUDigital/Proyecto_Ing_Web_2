@@ -1,9 +1,4 @@
 //Archivo inicializador, punto de entrada de la aplicación
-
-const dotenv = require("dotenv")
-
-dotenv.config({ path: "./config/config.env" });
-
 const app = require("./app");
 //Invocacion Inicializacion archivo app.js
 app.listen(app.get("port"), () => {
