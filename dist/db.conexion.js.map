@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../backend/db.conexion.js"],
+  "sourcesContent": ["//Conexion a Base de Datos de Mongo DB\r\nconst mongoose = require(\"mongoose\");\r\n\r\n//Importacion de variables de entorno config.js\r\nconst config = require('./config.js');\r\n\r\nconst conexionDB = async () => {\r\n    try {\r\n        //conexi\u00F3n a Cluster creado en Mongo Atlas\r\n        const DB = await mongoose.connect(\r\n            config.MONGOCNX\r\n        );\r\n        console.log(\"Conexion Mongo Satisfactoria\", DB.connection.name);\r\n    } catch (error) {\r\n        console.log(error);\r\n    }\r\n};\r\n\r\n//retorno resultado conexion BD\r\nmodule.exports = conexionDB;\r\n"],
+  "mappings": ";AACA,MAAM,WAAW,QAAQ,UAAU;AAGnC,MAAM,SAAS,QAAQ,aAAa;AAEpC,MAAM,aAAa,YAAY;AAC3B,MAAI;AAEA,UAAM,KAAK,MAAM,SAAS;AAAA,MACtB,OAAO;AAAA,IACX;AACA,YAAQ,IAAI,gCAAgC,GAAG,WAAW,IAAI;AAAA,EAClE,SAAS,OAAO;AACZ,YAAQ,IAAI,KAAK;AAAA,EACrB;AACJ;AAGA,OAAO,UAAU;",
+  "names": []
+}

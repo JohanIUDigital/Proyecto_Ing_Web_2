@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../backend/index.js"],
+  "sourcesContent": ["//Archivo inicializador, punto de entrada de la aplicaci\u00F3n\r\nconst app = require(\"./app\");\r\n//Invocacion Inicializacion archivo app.js\r\napp.listen(app.get(\"port\"), () => {\r\n  console.log(\"nombre de la aplicacion\", app.get(\"name\"))\r\n  console.log(\"puerto de la aplicacion\", app.get(\"port\"))\r\n})"],
+  "mappings": ";AACA,MAAM,MAAM,QAAQ,OAAO;AAE3B,IAAI,OAAO,IAAI,IAAI,MAAM,GAAG,MAAM;AAChC,UAAQ,IAAI,2BAA2B,IAAI,IAAI,MAAM,CAAC;AACtD,UAAQ,IAAI,2BAA2B,IAAI,IAAI,MAAM,CAAC;AACxD,CAAC;",
+  "names": []
+}

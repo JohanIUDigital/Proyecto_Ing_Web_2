@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../backend/routes/productora.routes.js"],
+  "sourcesContent": ["const { Router } = require(\"express\");\r\nconst routerProductora = Router();\r\nconst controllerProductora = require(\"../controllers/productora.controller\");\r\n\r\n//m\u00E9todos get modulo Productora\r\nrouterProductora.get(\"/\", controllerProductora._getProductoras );\r\nrouterProductora.get(\"/:id\", controllerProductora._getProductoras );\r\n\r\n//m\u00E9todo post modulo Productora\r\nrouterProductora.post(\"/\", controllerProductora._createProductora );\r\n\r\n//m\u00E9todo update modulo Productora\r\nrouterProductora.put('/:id', controllerProductora._updateProductora );\r\n\r\n//m\u00E9todo delete modulo Productora \r\nrouterProductora.delete('/:id', controllerProductora._deleteProductora );\r\n\r\n//retorno Entidades\r\nmodule.exports = routerProductora;"],
+  "mappings": ";AAAA,MAAM,EAAE,OAAO,IAAI,QAAQ,SAAS;AACpC,MAAM,mBAAmB,OAAO;AAChC,MAAM,uBAAuB,QAAQ,sCAAsC;AAG3E,iBAAiB,IAAI,KAAK,qBAAqB,eAAgB;AAC/D,iBAAiB,IAAI,QAAQ,qBAAqB,eAAgB;AAGlE,iBAAiB,KAAK,KAAK,qBAAqB,iBAAkB;AAGlE,iBAAiB,IAAI,QAAQ,qBAAqB,iBAAkB;AAGpE,iBAAiB,OAAO,QAAQ,qBAAqB,iBAAkB;AAGvE,OAAO,UAAU;",
+  "names": []
+}

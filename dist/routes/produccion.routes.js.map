@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../backend/routes/produccion.routes.js"],
+  "sourcesContent": ["const { Router } = require(\"express\");\r\nconst routerProduccion = Router();\r\nconst controllerProduccion = require(\"../controllers/produccion.controller\");\r\n\r\n//m\u00E9todos get modulo Produccion\r\nrouterProduccion.get(\"/\", controllerProduccion._getProducciones  );\r\nrouterProduccion.get(\"/:id\", controllerProduccion._getProducciones  );\r\n\r\n//m\u00E9todo post modulo Produccion\r\nrouterProduccion.post(\"/\", controllerProduccion._createProduccion );\r\n\r\n//m\u00E9todo update modulo Produccion\r\nrouterProduccion.put('/:id', controllerProduccion._updateProduccion );\r\n\r\n//m\u00E9todo delete modulo Produccion \r\nrouterProduccion.delete('/:id', controllerProduccion._deleteProduccion );\r\n\r\n//retorno Entidades\r\nmodule.exports = routerProduccion;"],
+  "mappings": ";AAAA,MAAM,EAAE,OAAO,IAAI,QAAQ,SAAS;AACpC,MAAM,mBAAmB,OAAO;AAChC,MAAM,uBAAuB,QAAQ,sCAAsC;AAG3E,iBAAiB,IAAI,KAAK,qBAAqB,gBAAkB;AACjE,iBAAiB,IAAI,QAAQ,qBAAqB,gBAAkB;AAGpE,iBAAiB,KAAK,KAAK,qBAAqB,iBAAkB;AAGlE,iBAAiB,IAAI,QAAQ,qBAAqB,iBAAkB;AAGpE,iBAAiB,OAAO,QAAQ,qBAAqB,iBAAkB;AAGvE,OAAO,UAAU;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../backend/routes/tipo.routes.js"],
+  "sourcesContent": ["const { Router } = require(\"express\");\r\nconst routerTipos = Router();\r\nconst controllerTipo = require(\"../controllers/tipo.controller\");\r\n\r\n//m\u00E9todos get modulo Tipo\r\nrouterTipos.get(\"/\", controllerTipo._getTipos );\r\nrouterTipos.get(\"/:id\", controllerTipo._getTipos );\r\n\r\n//m\u00E9todo post modulo Tipo\r\nrouterTipos.post(\"/\", controllerTipo._createTipo );\r\n\r\n//m\u00E9todo update modulo Tipo\r\nrouterTipos.put('/:id', controllerTipo._updateTipo );\r\n\r\n//m\u00E9todo delete modulo Tipo \r\nrouterTipos.delete('/:id', controllerTipo._deleteTipo );\r\n\r\n//retorno Entidades\r\nmodule.exports = routerTipos;"],
+  "mappings": ";AAAA,MAAM,EAAE,OAAO,IAAI,QAAQ,SAAS;AACpC,MAAM,cAAc,OAAO;AAC3B,MAAM,iBAAiB,QAAQ,gCAAgC;AAG/D,YAAY,IAAI,KAAK,eAAe,SAAU;AAC9C,YAAY,IAAI,QAAQ,eAAe,SAAU;AAGjD,YAAY,KAAK,KAAK,eAAe,WAAY;AAGjD,YAAY,IAAI,QAAQ,eAAe,WAAY;AAGnD,YAAY,OAAO,QAAQ,eAAe,WAAY;AAGtD,OAAO,UAAU;",
+  "names": []
+}

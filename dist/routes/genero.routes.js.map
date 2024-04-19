@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../backend/routes/genero.routes.js"],
+  "sourcesContent": ["const { Router } = require(\"express\");\r\nconst routerGeneros = Router();\r\nconst controllerGenero = require(\"../controllers/genero.controller\");\r\n\r\n//m\u00E9todos get modulo G\u00E9nero\r\nrouterGeneros.get(\"/\", controllerGenero._getGeneros);\r\nrouterGeneros.get(\"/:id\", controllerGenero._getGeneros);\r\n\r\n//m\u00E9todo post modulo G\u00E9nero\r\nrouterGeneros.post(\"/\", controllerGenero._createGenero);\r\n\r\n//m\u00E9todo update modulo G\u00E9nero\r\nrouterGeneros.put('/:id', controllerGenero._updateGenero );\r\n\r\n//m\u00E9todo delete modulo G\u00E9nero \r\nrouterGeneros.delete('/:id', controllerGenero._deleteGenero );\r\n\r\n//retorno Entidades\r\nmodule.exports = routerGeneros;"],
+  "mappings": ";AAAA,MAAM,EAAE,OAAO,IAAI,QAAQ,SAAS;AACpC,MAAM,gBAAgB,OAAO;AAC7B,MAAM,mBAAmB,QAAQ,kCAAkC;AAGnE,cAAc,IAAI,KAAK,iBAAiB,WAAW;AACnD,cAAc,IAAI,QAAQ,iBAAiB,WAAW;AAGtD,cAAc,KAAK,KAAK,iBAAiB,aAAa;AAGtD,cAAc,IAAI,QAAQ,iBAAiB,aAAc;AAGzD,cAAc,OAAO,QAAQ,iBAAiB,aAAc;AAG5D,OAAO,UAAU;",
+  "names": []
+}

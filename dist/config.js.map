@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../backend/config.js"],
+  "sourcesContent": ["module.exports = {\r\n    MONGOCNX: process.env.MONGOCNX || 'mongodb+srv://johanholguinaa:04cB9ogTOXUfTWjh@clusteriudigital.q4yt934.mongodb.net/DBIngWeb2',\r\n    HOST: process.env.HOST || '127.0.0.1',\r\n    PORT: process.env.PORT || 3500\r\n  }"],
+  "mappings": ";AAAA,OAAO,UAAU;AAAA,EACb,UAAU,QAAQ,IAAI,YAAY;AAAA,EAClC,MAAM,QAAQ,IAAI,QAAQ;AAAA,EAC1B,MAAM,QAAQ,IAAI,QAAQ;AAC5B;",
+  "names": []
+}

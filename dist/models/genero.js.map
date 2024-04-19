@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../backend/models/genero.js"],
+  "sourcesContent": ["const { Schema, model } = require(\"mongoose\");\r\n\r\n//Definicion de estructura para tabla(coleccion) generos\r\nconst generoSchema = new Schema ({\r\n    nombre: {\r\n        type: String,\r\n        required: true\r\n    },\r\n    descripcion: {\r\n        type: String,\r\n        required: true\r\n    },\r\n    activo: {\r\n        type: Boolean,\r\n        default: true\r\n    },\r\n    fechaCreacion: {\r\n        type: Date,\r\n        required: false\r\n    },\r\n    fechaActualizacion: {\r\n        type: Date,\r\n        required: false\r\n    }\r\n});\r\n\r\n//Retorno y nombre de tabla(coleccion) genero\r\nmodule.exports = model( \"Generos\", generoSchema );"],
+  "mappings": ";AAAA,MAAM,EAAE,QAAQ,MAAM,IAAI,QAAQ,UAAU;AAG5C,MAAM,eAAe,IAAI,OAAQ;AAAA,EAC7B,QAAQ;AAAA,IACJ,MAAM;AAAA,IACN,UAAU;AAAA,EACd;AAAA,EACA,aAAa;AAAA,IACT,MAAM;AAAA,IACN,UAAU;AAAA,EACd;AAAA,EACA,QAAQ;AAAA,IACJ,MAAM;AAAA,IACN,SAAS;AAAA,EACb;AAAA,EACA,eAAe;AAAA,IACX,MAAM;AAAA,IACN,UAAU;AAAA,EACd;AAAA,EACA,oBAAoB;AAAA,IAChB,MAAM;AAAA,IACN,UAAU;AAAA,EACd;AACJ,CAAC;AAGD,OAAO,UAAU,MAAO,WAAW,YAAa;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../backend/routes/director.routes.js"],
+  "sourcesContent": ["const { Router } = require(\"express\");\r\nconst routerDirector = Router();\r\nconst controllerDirector = require(\"../controllers/director.controller\");\r\n\r\n//m\u00E9todos get modulo Direccion\r\nrouterDirector.get(\"/\", controllerDirector._getDirectores);\r\nrouterDirector.get(\"/:id\", controllerDirector._getDirectores);\r\n\r\n//m\u00E9todo post modulo Direccion\r\nrouterDirector.post(\"/\", controllerDirector._createDirector);\r\n\r\n//m\u00E9todo update modulo Direccion\r\nrouterDirector.put('/:id', controllerDirector._updateDirector );\r\n\r\n//m\u00E9todo delete modulo Direccion \r\nrouterDirector.delete('/:id', controllerDirector._deleteDirector );\r\n\r\n//retorno Entidades\r\nmodule.exports = routerDirector;"],
+  "mappings": ";AAAA,MAAM,EAAE,OAAO,IAAI,QAAQ,SAAS;AACpC,MAAM,iBAAiB,OAAO;AAC9B,MAAM,qBAAqB,QAAQ,oCAAoC;AAGvE,eAAe,IAAI,KAAK,mBAAmB,cAAc;AACzD,eAAe,IAAI,QAAQ,mBAAmB,cAAc;AAG5D,eAAe,KAAK,KAAK,mBAAmB,eAAe;AAG3D,eAAe,IAAI,QAAQ,mBAAmB,eAAgB;AAG9D,eAAe,OAAO,QAAQ,mBAAmB,eAAgB;AAGjE,OAAO,UAAU;",
+  "names": []
+}
